@@ -1,12 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 
-class ExitWindow:
+class ExitFrame(ttk.Frame):
 
-    def __init__(self, win, view_manager):
+    def __init__(self, win):
         self.win = win
-        self.view_manager = view_manager
-        self.current_view = "Exit"
 
         exit_button = ttk.Button(
             self.win,
@@ -22,5 +20,3 @@ class ExitWindow:
 
     def quit(self):
         exit()
-
-

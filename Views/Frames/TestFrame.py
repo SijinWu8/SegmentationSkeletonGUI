@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk, Text
 
+from Views.Frames.MainTextFrame import MainTextFrame
+
+
 class TestFrame(ttk.Frame):
 
     def __init__(self, win):
@@ -23,8 +26,22 @@ class TestFrame(ttk.Frame):
         )
         Test_button.grid(column=1, row=0, sticky='W', **options)
 
-        self.text = Text(self, height=8, width= 50)
-        self.text.grid(column=1, row=1, sticky='W', **options)
+        stop_button = ttk.Button(
+            self,
+            text='Stop',
+            command=self.stop
+        )
+        stop_button.grid(column=1, row=0, **options)
+
+        self.textFrame = MainTextFrame(self)
+        self.textFrame.grid(column=1, row=1, sticky='W', **options)
 
     def process(self):
-        self.text.insert('1.0', 'Runing test.py ...')
+        self.textFrame.insert('Runing test.py ...')
+
+        from SegmentationSkeloton.segmentation_processing._3DUnet import test
+
+        self.textFrame.insert('Done')
+
+    def stop(self):
+        exit()

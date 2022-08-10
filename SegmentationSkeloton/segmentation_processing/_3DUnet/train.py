@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.ERROR)
 # n_samples = 21
 n_samples = 1
 
-data_dir = "../zarr_creation/"
+data_dir = "./output/"
 
 zarr_name = '3Dtraining.zarr'
 zarr_path = os.path.join(data_dir, zarr_name)
@@ -168,14 +168,19 @@ def train(iterations):
 		for i in tqdm(range(iterations)):
 			pipeline.request_batch(request)
 
+print("__name__ is "+__name__)
+
 if __name__ == '__main__':
 	if 'test' in sys.argv:
 		train_until = 10
 		snapshot_every = 1
 		num_workers = 1
 
-	train_until = 10
+	train_until = 5
 	snapshot_every = 1
 	num_workers = 1
 	
 	train(train_until)
+
+if __name__ == "SegmentationSkeloton.segmentation_processing._3DUnet.train":
+	train(1)

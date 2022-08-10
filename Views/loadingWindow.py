@@ -2,10 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from Views.Frames.PreprocessFrame import PreprocessFrame
-from Views.Frames.ProcessExpandFrame import ProcessExpandFrame
 from Views.Frames.ProcessFrame import ProcessFrame
-from Views.Frames.SelectFolderFrame import SelectFolderFrame
-from Views.Frames.StepFrame import StepFrame
 from Views.Frames.TestFrame import TestFrame
 from Views.Frames.TrainingFrame import TrainingFrame
 
@@ -112,4 +109,5 @@ class LoadingWindow:
             self.next_button.place(x=150, y=250)
 
             self.current_view = "test"
+
 
