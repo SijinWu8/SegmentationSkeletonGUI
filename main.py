@@ -2,6 +2,6 @@ from viewManager import ViewManager
 
 vm = ViewManager()
 
-#let's seeee
+#let's see this
 
 
