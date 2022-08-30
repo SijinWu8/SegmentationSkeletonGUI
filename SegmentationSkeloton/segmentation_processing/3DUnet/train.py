@@ -174,8 +174,16 @@ if __name__ == '__main__':
 		snapshot_every = 1
 		num_workers = 1
 
+
+
+	'''
+		For GUI Test. Delete it after test is done.
+	'''
 	train_until = 10
 	snapshot_every = 1
 	num_workers = 1
+	'''
+		For GUI Test. Delete it after test is done.
+	'''
 	
 	train(train_until)

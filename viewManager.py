@@ -26,6 +26,7 @@ class ViewManager:
         self.active_window.mainloop()
 
 
+
     # def change_view(self, current_view):
     #     """Destroy current window and create a new one:"""
     #     self.active_window.destroy()

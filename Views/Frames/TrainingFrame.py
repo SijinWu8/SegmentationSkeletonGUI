@@ -41,6 +41,9 @@ class TrainingFrame(ttk.Frame):
     def process(self):
         self.textFrame.insert('Runing train.py ...')
 
+        '''
+            Plan B: run the code directly, but can't show the information in the text box
+        '''
         from SegmentationSkeloton.segmentation_processing._3DUnet import train
 
         self.textFrame.insert( 'Done')

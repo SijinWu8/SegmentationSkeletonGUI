@@ -49,7 +49,7 @@ class ProcessFrame(ttk.Frame):
             text='Process_Expand',
             command=self._process_expand
         )
-        processExpand_button.grid(column=0, row=1, **options)
+        processExpand_button.grid(column=0, row=1,**options)
 
         self.textFrame = MainTextFrame(self)
 
@@ -85,7 +85,9 @@ class ProcessFrame(ttk.Frame):
             dataset = container.create_dataset(name + '/' + str(i), shape=arr[i].shape)
             dataset[:] = arr[i]
 
-
+    '''
+        Plan A: COPY CODE to here, and we can add the processing information in the text box
+    '''
     def execute_process(self):
 
         rawDataPath = self.selectFolderframe.getRawDataPath()
@@ -104,7 +106,7 @@ class ProcessFrame(ttk.Frame):
         '''
         ***************************************test for only 1*********************************************************
         '''
-        for i in range(1):
+        for i in range(21):
         # for i in range(21):
             names.append('T' + str(i + 1))
         '''
@@ -121,6 +123,9 @@ class ProcessFrame(ttk.Frame):
         num_name = 0
         for name in names:
 
+            '''
+                Add the information in the text box
+            '''
             self.textFrame.insert("Processing "+str(name)+"... ")
             # self.textFrame.see()
             # self.textFrame.update_idletasks()
