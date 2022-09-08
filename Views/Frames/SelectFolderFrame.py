@@ -63,6 +63,14 @@ class SelectFolderFrame(ttk.Frame):
         )
         open_button.grid(column=2, row=2, sticky='W', **options)
 
+        # Button to generate the thresholds.py:
+        open_button = ttk.Button(
+            self,
+            text='Generate thresholds.npy',
+            command=self.generate_thresholds_npy_path
+        )
+        open_button.grid(column=3, row=2, sticky='W', **options)
+
 
 
     def select_raw_data_path(self):
@@ -85,7 +93,6 @@ class SelectFolderFrame(ttk.Frame):
         path = os.path.abspath(file.name)
         self.thresholdsNpyPath = path
         self.set_thresholds_npy_path(path)
-
         return
 
 
@@ -112,3 +119,11 @@ class SelectFolderFrame(ttk.Frame):
 
     def getThreholdsNpyPath(self):
         return self.thresholdsNpyPath
+
+    # Creates a dialog to create a thresholds.npy file:
+    def generate_thresholds_npy_path(self):
+        file = askopenfile(title='Select thresholds.npy', mode='r', filetypes=[('npy Files', '*.npy')])
+        path = os.path.abspath(file.name)
+        self.thresholdsNpyPath = path
+        self.set_thresholds_npy_path(path)
+        return
