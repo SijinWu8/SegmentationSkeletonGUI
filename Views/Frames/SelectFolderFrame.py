@@ -120,5 +120,5 @@ class SelectFolderFrame(ttk.Frame):
     # Creates a dialog to create a thresholds.npy file:
     def generate_thresholds_npy_path(self):
         window = tk.Tk()
-        ThresholdsWindow(window)
-        window.mainloop()
+        ThresholdsWindow(window, self)
+        #window.mainloop()
