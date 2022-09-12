@@ -5,6 +5,7 @@ from tkinter.filedialog import askdirectory, askopenfile
 from tkinter.messagebox import showinfo
 import os
 
+from Views.thresholdsWindow import ThresholdsWindow
 
 class SelectFolderFrame(ttk.Frame):
 
@@ -90,26 +91,22 @@ class SelectFolderFrame(ttk.Frame):
 
     def select_thresholds_npy_path(self):
         file = askopenfile(title='Select thresholds.npy', mode='r', filetypes=[('npy Files', '*.npy')])
-        path = os.path.abspath(file.name)
-        self.thresholdsNpyPath = path
-        self.set_thresholds_npy_path(path)
-        return
-
+        if file is not None:
+            path = os.path.abspath(file.name)
+            self.thresholdsNpyPath = path
+            self.set_thresholds_npy_path(path)
 
     def set_raw_data_path(self, path):
         self.rawData_path_entry.delete(0, 0)
         self.rawData_path_entry.insert(0, path)
-        return
 
     def set_gt_data_path(self, path):
         self.gtData_path_entry.delete(0, 0)
         self.gtData_path_entry.insert(0, path)
-        return
 
     def set_thresholds_npy_path(self, path):
         self.thresholds_npy_path_entry.delete(0, 0)
         self.thresholds_npy_path_entry.insert(0, path)
-        return
 
     def getRawDataPath(self):
         return self.rawDataPath
@@ -122,8 +119,6 @@ class SelectFolderFrame(ttk.Frame):
 
     # Creates a dialog to create a thresholds.npy file:
     def generate_thresholds_npy_path(self):
-        file = askopenfile(title='Select thresholds.npy', mode='r', filetypes=[('npy Files', '*.npy')])
-        path = os.path.abspath(file.name)
-        self.thresholdsNpyPath = path
-        self.set_thresholds_npy_path(path)
-        return
+        window = tk.Tk()
+        ThresholdsWindow(window)
+        window.mainloop()
